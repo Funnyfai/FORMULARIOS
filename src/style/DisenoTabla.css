@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor de la tabla */
+.tabla-container {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 800px;
+}
+
+/* Título */
+.tabla-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Tabla */
+.tabla-estudiantes {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  color: #333;
+}
+
+/* Encabezado */
+.tabla-estudiantes thead {
+  background-color: #667eea;
+  color: white;
+}
+
+.tabla-estudiantes th {
+  padding: 12px 10px;
+  text-align: left;
+  font-weight: 600;
+}
+
+/* Filas */
+.tabla-estudiantes td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Efecto hover */
+.tabla-estudiantes tr:hover {
+  background-color: #f4f4f9;
+  transition: background-color 0.2s ease;
+}
+
+/* Bordes redondeados visuales */
+.tabla-estudiantes th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.tabla-estudiantes th:last-child {
+  border-top-right-radius: 10px;
+}
