@@ -1,20 +1,9 @@
-import { useState } from "react";
-import { EstudiantesProvider } from "../context/EstudiantesContext";
-import Formulario from "../components/formulario";
+import Formulario from "../components/Formulario";
 
 function Home() {
-  const [estudiantes, setEstudiantes] = useState([]);
-
-  // Función que recibe los datos del formulario
-  const agregarEstudiante = (nuevoEstudiante) => {
-    setEstudiantes([...estudiantes, nuevoEstudiante]);
-  };
-
   return (
     <div className="contenedor">
-      <EstudiantesProvider>
-        <Formulario />
-      </EstudiantesProvider>
+      <Formulario />
     </div>
   );
 }

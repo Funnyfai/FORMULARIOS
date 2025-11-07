@@ -1,67 +1,134 @@
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Contenedor de la tabla */
+/* ---------- TABLA ---------- */
 .tabla-container {
-  background-color: #fff;
-  padding: 30px 40px;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-  width: 90%;
-  max-width: 800px;
+  padding: 40px;
+  background: linear-gradient(135deg, #e8eaff, #f7f8ff);
+  min-height: 100vh;
+  transition: background 0.3s ease;
 }
 
-/* Título */
-.tabla-container h2 {
+h2 {
   text-align: center;
-  color: #333;
+  color: #2d2d7f;
   margin-bottom: 20px;
+  font-size: 1.8rem;
 }
 
-/* Tabla */
 .tabla-estudiantes {
   width: 100%;
   border-collapse: collapse;
-  font-size: 15px;
-  color: #333;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
-/* Encabezado */
+.tabla-estudiantes th,
+.tabla-estudiantes td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
 .tabla-estudiantes thead {
-  background-color: #667eea;
+  background-color: #6c63ff;
   color: white;
 }
 
-.tabla-estudiantes th {
-  padding: 12px 10px;
-  text-align: left;
-  font-weight: 600;
+.tabla-estudiantes tbody tr:nth-child(even) {
+  background-color: #f4f4ff;
 }
 
-/* Filas */
-.tabla-estudiantes td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+.tabla-estudiantes tbody tr:hover {
+  background-color: #e1e0ff;
+  transition: 0.3s;
 }
 
-/* Efecto hover */
-.tabla-estudiantes tr:hover {
-  background-color: #f4f4f9;
-  transition: background-color 0.2s ease;
+/* ---------- BOTONES ---------- */
+.btn-eliminar,
+.btn-regresar {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin: 2px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-/* Bordes redondeados visuales */
-.tabla-estudiantes th:first-child {
-  border-top-left-radius: 10px;
+.btn-eliminar {
+  background-color: #ff4d4f;
+  color: white;
 }
 
-.tabla-estudiantes th:last-child {
-  border-top-right-radius: 10px;
+.btn-eliminar:hover {
+  background-color: #d9363e;
+  transform: scale(1.05);
+}
+
+.btn-regresar {
+  background-color: #6c63ff;
+  color: white;
+}
+
+.btn-regresar:hover {
+  background-color: #5848d8;
+  transform: scale(1.05);
+}
+
+/* ---------- BOTÓN VOLVER AL FORMULARIO ---------- */
+.btn-volver-form {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 25px;
+  background-color: #444;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-volver-form:hover {
+  background-color: #2d2d7f;
+  transform: scale(1.05);
+}
+
+/* ---------- MODO OSCURO ---------- */
+body.dark-mode .tabla-container {
+  background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+}
+
+body.dark-mode h2 {
+  color: #e4e4ff;
+}
+
+body.dark-mode .tabla-estudiantes {
+  background-color: #2f2f2f;
+  color: #f1f1f1;
+}
+
+body.dark-mode .tabla-estudiantes thead {
+  background-color: #7a74ff;
+}
+
+body.dark-mode .tabla-estudiantes tbody tr:nth-child(even) {
+  background-color: #383838;
+}
+
+body.dark-mode .btn-eliminar {
+  background-color: #ff6365;
+}
+
+body.dark-mode .btn-eliminar:hover {
+  background-color: #d93e42;
+}
+
+body.dark-mode .btn-regresar {
+  background-color: #7a74ff;
+}
+
+body.dark-mode .btn-regresar:hover {
+  background-color: #5c55d4;
 }

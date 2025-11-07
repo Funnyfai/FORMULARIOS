@@ -1,92 +1,121 @@
-/* Fondo general */
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Contenedor del formulario */
+/* ---------- FORMULARIO ---------- */
 .form-container {
-  background-color: #fff;
-  padding: 30px 40px;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-  width: 100%;
-  max-width: 400px;
-  margin-bottom: 50px;
-}
-
-/* Título */
-.formulario h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-/* Etiquetas */
-.formulario label {
-  display: block;
-  font-weight: 500;
-  color: #444;
-  margin-bottom: 5px;
-}
-
-/* Inputs y textarea */
-.formulario input,
-.formulario textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  font-size: 15px;
-  transition: all 0.3s ease;
-}
-
-.formulario input:focus,
-.formulario textarea:focus {
-  border-color: #667eea;
-  outline: none;
-  box-shadow: 0 0 5px rgba(102, 126, 234, 0.4);
-}
-
-.formulario select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  font-size: 15px;
-  background-color: #fff;
-  transition: all 0.3s ease;
-}
-
-.formulario select:focus {
-  border-color: #667eea;
-  outline: none;
-  box-shadow: 0 0 5px rgba(102, 126, 234, 0.4);
-}
-
-
-/* Botón */
-.formulario button {
-  width: 100%;
-  padding: 12px;
-  background-color: #667eea;
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4ff, #e8eaff);
+  padding: 20px;
   transition: background 0.3s ease;
 }
 
-.formulario button:hover {
-  background-color: #5a67d8;
+.formulario {
+  background: #ffffff;
+  padding: 35px 45px;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  transition: all 0.3s ease;
 }
 
+.formulario:hover {
+  transform: translateY(-3px);
+}
+
+.formulario h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2d2d7f;
+  font-size: 1.8rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c9c9e6;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: #6c63ff;
+  outline: none;
+  box-shadow: 0 0 4px rgba(108, 99, 255, 0.3);
+}
+
+button {
+  width: 100%;
+  background-color: #6c63ff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #5848d8;
+  transform: scale(1.03);
+}
+
+/* ---------- BOTÓN VOLVER ---------- */
+.btn-volver {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  background-color: #444;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-volver:hover {
+  background-color: #2d2d7f;
+  transform: scale(1.05);
+}
+
+/* ---------- MODO OSCURO ---------- */
+body.dark-mode {
+  background: #1a1a1a;
+  color: #e4e4e4;
+}
+
+body.dark-mode .form-container {
+  background: linear-gradient(135deg, #232323, #1e1e1e);
+}
+
+body.dark-mode .formulario {
+  background: #2c2c2c;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode input,
+body.dark-mode select {
+  background-color: #3a3a3a;
+  border: 1px solid #555;
+  color: #f1f1f1;
+}
+
+body.dark-mode button {
+  background-color: #7a74ff;
+}
+
+body.dark-mode button:hover {
+  background-color: #5c55d4;
+}

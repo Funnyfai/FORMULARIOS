@@ -1,21 +1,42 @@
-import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Tabla from "./components/tabla";
+import Tabla from "./components/Tabla";
+import TablaMat from "./components/TablaMat";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
+import { EstudiantesProvider } from "./context/EstudiantesContext";
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    document.body.classList.toggle("dark-mode");
+  };
 
   return (
-    <>
-      <Router>
+    <EstudiantesProvider>
+      <BrowserRouter>
+        <header className="app-header">
+          <button className="modo-btn" onClick={toggleDarkMode}>
+            {darkMode ? "☀️ Modo Claro" : "🌙 Modo Oscuro"}
+          </button>
+
+          {/* 🔗 Menú de navegación simple */}
+          <nav className="menu">
+            <Link to="/">Formulario</Link>
+            <Link to="/tabla">Estudiantes</Link>
+            <Link to="/materias">Materias</Link>
+          </nav>
+        </header>
+
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Tabla" element={<Tabla />} />
+          <Route path="/tabla" element={<Tabla />} />
+          <Route path="/materias" element={<TablaMat />} />
         </Routes>
-      </Router>
-    </>
+      </BrowserRouter>
+    </EstudiantesProvider>
   );
 }
 

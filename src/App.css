@@ -1,0 +1,35 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f7f7ff;
+  padding: 10px 20px;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #2d2d7f;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: #6c63ff;
+}
+
+body.dark-mode .app-header {
+  background: #1e1e1e;
+}
+
+body.dark-mode .menu a {
+  color: #cfcfff;
+}
+
+body.dark-mode .menu a:hover {
+  color: #7a74ff;
+}

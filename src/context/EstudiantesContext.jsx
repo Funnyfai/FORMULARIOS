@@ -1,42 +1,38 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
-// Crear el contexto
 const EstudiantesContext = createContext();
 
-// Hook para usar el contexto fácilmente
-export const useEstudiantes = () => useContext(EstudiantesContext);
-
-// Proveedor del contexto
-export const EstudiantesProvider = ({ children }) => {
-  const [estudiantes, setEstudiantes] = useState([]);
-
-  // Cargar desde localStorage al iniciar
-  useEffect(() => {
-    const guardados = localStorage.getItem("estudiantes");
-    if (guardados) {
-      setEstudiantes(JSON.parse(guardados));
+export function EstudiantesProvider({ children }) {
+  const [estudiantes, setEstudiantes] = useState(() => {
+    try {
+      const raw = localStorage.getItem("estudiantes");
+      return raw ? JSON.parse(raw) : [];
+    } catch {
+      return [];
     }
-  }, []);
+  });
 
-  // Guardar en localStorage cada vez que cambien
   useEffect(() => {
     localStorage.setItem("estudiantes", JSON.stringify(estudiantes));
   }, [estudiantes]);
 
-  const agregarEstudiante = (nuevo) => {
-    setEstudiantes([...estudiantes, nuevo]);
-  };
+  function addEstudiante(est) {
+    setEstudiantes((prev) => [...prev, est]);
+  }
 
-  const eliminarEstudiante = (index) => {
-    const actualizados = estudiantes.filter((_, i) => i !== index);
-    setEstudiantes(actualizados);
-  };
+  function removeEstudiante(id) {
+    setEstudiantes((prev) => prev.filter((e) => e.id !== id));
+  }
 
   return (
     <EstudiantesContext.Provider
-      value={{ estudiantes, agregarEstudiante, eliminarEstudiante }}
+      value={{ estudiantes, addEstudiante, removeEstudiante }}
     >
       {children}
     </EstudiantesContext.Provider>
   );
-};
+}
+
+export function useEstudiantes() {
+  return useContext(EstudiantesContext);
+}

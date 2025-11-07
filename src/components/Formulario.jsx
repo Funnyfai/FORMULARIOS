@@ -4,8 +4,8 @@ import "../style/DisenoFormulario.css";
 import { useEstudiantes } from "../context/EstudiantesContext";
 
 function Formulario() {
+  const { addEstudiante } = useEstudiantes();
   const navigate = useNavigate();
-  const { agregarEstudiante } = useEstudiantes();
 
   const [formData, setFormData] = useState({
     nombre: "",
@@ -42,8 +42,25 @@ function Formulario() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // ✅ Redirige a /tabla y pasa los datos como "state"
-    navigate("/tabla", { state: { estudiante: formData } });
+    if (!formData.nombre || !formData.email || !formData.carrera) {
+      alert("Por favor, completa todos los campos obligatorios.");
+      return;
+    }
+
+    const nuevo = {
+      id: Date.now().toString(),
+      ...formData,
+    };
+
+    addEstudiante(nuevo);
+    setFormData({
+      nombre: "",
+      email: "",
+      direccion: "",
+      facultad: "",
+      carrera: "",
+    });
+    navigate("/tabla");
   };
 
   return (
